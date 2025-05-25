@@ -41,6 +41,6 @@ aws-cli-infra-setup/
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/your-username/aws-cli-infra-setup.git
+git clone https://github.com/SaraAmeli/aws-cli-infra-setup.git
 cd aws-cli-infra-setup
 
