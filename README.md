@@ -23,9 +23,24 @@ This repository contains a set of Bash scripts that use the AWS CLI to provision
 ## 📁 Directory Structure
 
 aws-cli-infra-setup/
+
 ├── scripts/
+
 │ ├── setup-infra.sh # Main infrastructure script
+
 │ └── userdata.sh # EC2 bootstrap script
+
 ├── vpc-ids.env # Auto-generated VPC resource IDs
+
 ├── .gitignore
+
 └── README.md
+
+
+## 🚀 Usage
+
+1. **Clone the repository**
+```bash
+git clone https://github.com/your-username/aws-cli-infra-setup.git
+cd aws-cli-infra-setup
+
