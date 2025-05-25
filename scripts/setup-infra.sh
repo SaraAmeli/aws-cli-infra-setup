@@ -72,7 +72,21 @@ echo "🏷️  Tagged resources"
 SECURITY_GROUP_ID=$(was ec2 create-security-group \
   --group-name "ssh-access" \
   --description "Allow SSH from my IP" \
-  --vpc-id "VPC")
+  --vpc-id "VPC_ID"
+  --region "AWS_REGION" \
+  --query 'GroupId' \
+  --output text)
+  echo "✅ Created Security Group: $SECURITY_GROUP_ID"
+
+  # Restrict SSH to your IP (replace with your actual IP/CIDR)
+MY_IP=$(curl -s https://checkip.amazonaws.com)
+aws ec2 authorize-security-group-ingress \
+  --group-id "SECURITY_GROUP_ID" \
+  --protocol tcp \
+  --port 22 \
+  --cidr $MY_IP/32" \
+  --region "$AWS_REGION"
+echo "✅ Allowed SSH only from $MY_IP"    
 
 
 
