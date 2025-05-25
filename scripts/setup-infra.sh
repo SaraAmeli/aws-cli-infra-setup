@@ -68,25 +68,27 @@ aws ec2 create-tags \
   --tags Key=Project,Value=aws-cli-infra-setup
 echo "🏷️  Tagged resources"
 
-#10 Create security group for SSH
-SECURITY_GROUP_ID=$(was ec2 create-security-group \
+# 10. Create Security Group for SSH
+echo "🔐 Creating security group..."
+SECURITY_GROUP_ID=$(aws ec2 create-security-group \
   --group-name "ssh-access" \
   --description "Allow SSH from my IP" \
-  --vpc-id "VPC_ID"
-  --region "AWS_REGION" \
+  --vpc-id "$VPC_ID" \
+  --region "$AWS_REGION" \
   --query 'GroupId' \
   --output text)
-  echo "✅ Created Security Group: $SECURITY_GROUP_ID"
+echo "✅ Created Security Group: $SECURITY_GROUP_ID"
 
-  # Restrict SSH to your IP (replace with your actual IP/CIDR)
+# 11. Restrict SSH to your IP (replace with your actual IP/CIDR)
 MY_IP=$(curl -s https://checkip.amazonaws.com)
 aws ec2 authorize-security-group-ingress \
-  --group-id "SECURITY_GROUP_ID" \
+  --group-id "$SECURITY_GROUP_ID" \
   --protocol tcp \
   --port 22 \
-  --cidr $MY_IP/32" \
+  --cidr "$MY_IP/32" \
   --region "$AWS_REGION"
-echo "✅ Allowed SSH only from $MY_IP"    
+echo "✅ Allowed SSH only from $MY_IP"
+
 
 
 
