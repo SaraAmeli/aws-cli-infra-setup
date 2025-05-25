@@ -92,7 +92,7 @@ echo "✅ Allowed SSH only from $MY_IP"
 
 
 
-# 10. Create Private Subnet
+# Create Private Subnet
 echo "🔧 Creating private subnet..."
 PRIV_SUBNET_ID=$(aws ec2 create-subnet \
   --vpc-id "$VPC_ID" \
@@ -103,7 +103,7 @@ PRIV_SUBNET_ID=$(aws ec2 create-subnet \
   --output text)
 echo "✅ Created Private Subnet: $PRIV_SUBNET_ID"
 
-# 11. Save to env file
+# Save to env file
 echo "VPC_ID=$VPC_ID" > vpc-ids.env
 echo "PUB_SUBNET_ID=$PUBLIC_SUBNET_ID" >> vpc-ids.env
 echo "PRIV_SUBNET_ID=$PRIV_SUBNET_ID" >> vpc-ids.env
