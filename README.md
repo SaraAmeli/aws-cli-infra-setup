@@ -44,3 +44,22 @@ aws-cli-infra-setup/
 git clone https://github.com/SaraAmeli/aws-cli-infra-setup.git
 cd aws-cli-infra-setup
 
+2. Make scripts executable
+
+chmod +x scripts/*.sh
+
+3. Run setup script
+
+./scripts/setup-infra.sh
+
+This will provision:
+
+    1 VPC
+
+    Public + Private subnets
+
+    Internet + NAT Gateways
+
+    Route tables
+
+    EC2 instances (with latest updates installed)
