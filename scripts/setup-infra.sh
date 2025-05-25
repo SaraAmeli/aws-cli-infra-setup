@@ -68,6 +68,14 @@ aws ec2 create-tags \
   --tags Key=Project,Value=aws-cli-infra-setup
 echo "🏷️  Tagged resources"
 
+#10 Create security group for SSH
+SECURITY_GROUP_ID=$(was ec2 create-security-group \
+  --group-name "ssh-access" \
+  --description "Allow SSH from my IP" \
+  --vpc-id "VPC")
+
+
+
 # 10. Create Private Subnet
 echo "🔧 Creating private subnet..."
 PRIV_SUBNET_ID=$(aws ec2 create-subnet \
