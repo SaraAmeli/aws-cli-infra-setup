@@ -43,6 +43,7 @@ aws-cli-infra-setup/
 ```bash
 git clone https://github.com/SaraAmeli/aws-cli-infra-setup.git
 cd aws-cli-infra-setup
+```
 
 2. Make scripts executable
 
