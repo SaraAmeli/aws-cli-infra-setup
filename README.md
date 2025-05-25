@@ -47,20 +47,24 @@ cd aws-cli-infra-setup
 
 2. Make scripts executable
 
+```
 chmod +x scripts/*.sh
+```
 
 3. Run setup script
 
+```
 ./scripts/setup-infra.sh
+```
 
 This will provision:
 
-    1 VPC
+1 VPC
 
-    Public + Private subnets
+Public + Private subnets
 
-    Internet + NAT Gateways
+Internet + NAT Gateways
 
-    Route tables
+Route tables
 
-    EC2 instances (with latest updates installed)
+EC2 instances (with latest updates installed)
